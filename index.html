@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايتنا يا Loka ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <main class="container">
+        <section id="welcome" class="welcome">
+            <h1>أهلاً يا Loka ❤️</h1>
+            <p>إنتِ أجمل حاجة حصلت في حياتي 💗</p>
+
+            <button id="love-button" onclick="showLove()">
+                اضغطي هنا يا حبيبتي 💌
+            </button>
+
+            <p id="love-message"></p>
+
+            <button id="start-button" onclick="startJourney()" hidden>
+                يلا نبدأ حكايتنا ❤️
+            </button>
+        </section>
+<section id="music-player" class="music-player" hidden>
+    <div class="music-heart">🎶💗</div>
+    <h2>أغنيتنا يا Loka</h2>
+    <p>أغنية صغيرة لحكايتنا ❤️</p>
+
+    <audio id="our-song" src="music/loka-song.mp3" preload="auto"></audio>
+
+    <button id="music-toggle" type="button" onclick="toggleMusic()">
+        ▶ شغّلي أغنيتنا
+    </button>
+
+    <label for="music-volume">مستوى الصوت 🔊</label>
+    <input
+        id="music-volume"
+        type="range"
+        min="0"
+        max="100"
+        value="60"
+        step="1"
+    >
+
+    <p id="music-status" aria-live="polite">جاهزة للتشغيل 💕</p>
+</section>
+        <section id="memories" hidden>
+            <h2>حكايتنا يا Loka 💖</h2>
+            <p class="intro">
+                كل لحظة معاكي حكاية، وكل صورة فيها ذكرى بحبها.
+            </p>
+<div class="love-surprise">
+    <h2>رسالة صغيرة لقلبك 💗</h2>
+    <p>كل مرة تدوسي فيها، هتلاقي رسالة من قلبي ليكي ❤️</p>
+
+    <button id="romantic-button" onclick="romanticSurprise()">
+        اضغطي هنا يا حبيبتي 💖
+    </button>
+
+    <div id="romantic-result" hidden>
+        <div id="big-heart">💗</div>
+        <p id="romantic-message"></p>
+    </div>
+</div>
+            <div class="memory-categories">
+
+                <button class="category-card" onclick="openCategory('laugh')">
+                    <span class="category-icon">😂</span>
+                    <h3>لحظات الضحك</h3>
+                    <p>أحلى ضحكات ومواقف بينا</p>
+                </button>
+
+                <button class="category-card" onclick="openCategory('food')">
+                    <span class="category-icon">🍕</span>
+                    <h3>الأكل والخروجات</h3>
+                    <p>كل خروجة معاكي حكاية</p>
+                </button>
+
+                <button class="category-card" onclick="openCategory('drawing')">
+                    <span class="category-icon">🎨</span>
+                    <h3>الرسم</h3>
+                    <p>رسوماتنا والحاجات اللي بنحبها</p>
+                </button>
+
+                <button class="category-card" onclick="openCategory('childhood')">
+                    <span class="category-icon">🧸</span>
+                    <h3>صورنا وإحنا صغيرين</h3>
+                    <p>ذكريات زمان وصورنا سوا</p>
+                </button>
+
+            </div>
+
+            <section id="gallery" class="gallery" hidden>
+                <h2 id="gallery-title"></h2>
+                <div id="gallery-photos" class="gallery-photos"></div>
+                <button onclick="closeGallery()">رجوع للذكريات ❤️</button>
+            </section>
+<!-- لعبة حب Loka -->
+<section id="love-quiz" class="love-quiz">
+    <div class="quiz-heart">💗</div>
+
+    <h2>قد إيه تعرفي حكايتنا يا Loka؟</h2>
+    <p class="quiz-intro">
+        عندي ليكي لعبة صغيرة، 7 أسئلة من القلب للقلب 🥹❤️
+    </p>
+
+    <div id="quiz-start">
+        <p>مستعدة نختبر ذاكرتك يا حبيبتي؟ 😘</p>
+        <button type="button" class="quiz-button" onclick="startLoveQuiz()">
+            يلا نلعب يا قلبي 💌
+        </button>
+    </div>
+
+    <div id="quiz-game" hidden>
+        <div class="quiz-progress">
+            <span id="quiz-counter">السؤال 1 من 7</span>
+            <div class="quiz-progress-track">
+                <div id="quiz-progress-fill"></div>
+            </div>
+        </div>
+
+        <h3 id="quiz-question"></h3>
+        <div id="quiz-answers" class="quiz-answers"></div>
+        <p id="quiz-feedback" aria-live="polite"></p>
+
+        <button id="quiz-next" type="button" class="quiz-button" hidden
+            onclick="nextLoveQuestion()">
+            السؤال اللي بعده 💗
+        </button>
+    </div>
+
+    <div id="quiz-result" hidden>
+        <div id="quiz-result-heart">💖</div>
+        <h3 id="quiz-result-title">يا أجمل حكاية ❤️</h3>
+        <p id="quiz-result-score"></p>
+        <p id="quiz-result-message"></p>
+
+        <button type="button" class="quiz-button" onclick="restartLoveQuiz()">
+            نلعب تاني يا قلبي 💕
+        </button>
+    </div>
+</section>
+            <p class="ending">الحكاية لسه مكملة معاكي يا حبيبتي ❤️</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
